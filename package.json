@@ -13,9 +13,14 @@
     "type": "git",
     "url": "git://github.com/morishitter/minesweeper/git"
   },
-  "keywords": ["game","minesweeper"],
+  "keywords": [
+    "game",
+    "minesweeper"
+  ],
   "author": "Masaaki Morishita",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {}
 }

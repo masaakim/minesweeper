@@ -1,3 +1,5 @@
+var _ = require('lodash')
+
 module.exports = Minesweeper
 
 function Minesweeper (options) {
@@ -17,7 +19,45 @@ function Minesweeper (options) {
 }
 
 function init (size, bomb) {
+    var field = []
+    var tmpField = []
+    var bombNum = 0
+    var fieldNum = Math.pow(size, 2)
+
+    for (var i = 0; i < fieldNum; i++) {
+        if (bombNum < bomb) {
+            tmpField.push({
+                open: false,
+                check: false,
+                val: 'B'
+            })
+            bombNum++
+        }
+        else {
+            tmpField.push({
+                open: false,
+                check: false,
+                val: 0
+            })
+        }
+    }
+
+    tmpField = _.shuffle(tmpField)
+
+    var trimedField = []
+
+    tmpField.forEach(function (tmp) {
+        field.push(tmp)
+
+        if (field.length === size) {
+            trimedField.push(field)
+            field = []
+        }
+    })
+
+    return trimedField
 }
+
 
 Minesweeper.prototype.open = function (input) {
 }
