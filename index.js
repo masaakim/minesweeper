@@ -7,14 +7,10 @@ function Minesweeper (options) {
         return new Minesweeper(options)
     }
 
-    options = options || {
-        size: 10,
-        bomb: 15
-    }
+    options = options || {}
 
     this.size = options.size
     this.bomb = options.bomb
-
     this.field = init(this.size, this.bomb)
 }
 
