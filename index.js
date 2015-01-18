@@ -120,7 +120,7 @@ Minesweeper.prototype.open = function (str) {
         this.field[row][column].open = true
     }
 
-    return gameOver(field)
+    return this.field[row][column].val
 }
 
 function input (str) {
@@ -145,7 +145,7 @@ function gameOver (field) {
     return true
 }
 
-Minesweeper.prototype._isGameOver () {
+Minesweeper.prototype._isGameOver = function () {
     this.field.forEach(function (row) {
         row.forEach(function (square) {
             if (square.open === true && square.val === 'B') {
@@ -172,6 +172,21 @@ Minesweeper.prototype.check = function (input) {
 }
 
 Minesweeper.prototype.help = function () {
+    var help = [
+        'Usage: minesweeper [options]',
+        '',
+        'Options:',
+        '  -s, --size  set field size',
+        '  -b, --bomb  set number of bombs',
+        '',
+        'Command:',
+        '  open <row> <column>   open the given square',
+        '  check <row> <column>  check the given square',
+        '  quit                  quit playing',
+        '  help                  output command information',
+    ]
+
+    console.log(help.join('\n'))
 }
 
 Minesweeper.prototype.quit = function () {
