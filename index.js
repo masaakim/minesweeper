@@ -9,7 +9,7 @@ function Minesweeper (options) {
 
     options = options || {
         size: 10,
-        bomb: 10
+        bomb: 15
     }
 
     this.size = options.size
@@ -44,18 +44,18 @@ function init (size, bomb) {
 
     tmpField = _.shuffle(tmpField)
 
-    var trimedField = []
+    var matrixField = []
 
     tmpField.forEach(function (tmp) {
         field.push(tmp)
 
         if (field.length === size) {
-            trimedField.push(field)
+            matrixField.push(field)
             field = []
         }
     })
 
-    return setNumber(trimedField)
+    return setNumber(matrixField)
 }
 
 function setNumber (field) {
@@ -112,10 +112,38 @@ function setNumber (field) {
 }
 
 
-Minesweeper.prototype.open = function (input) {
+// input: "open row column"
+Minesweeper.prototype.open = function (str) {
+    if (input(str).command === 'open') {
+        var row = input(str).row
+        var column = input(str).column
+
+        this.field[row][column].open = true
+    }
+}
+
+function input (str) {
+    input = input.split(' ')
+
+    return {
+        command: input[0],
+        row: input[1],
+        column: input[2]
+    }
 }
 
 Minesweeper.prototype.check = function (input) {
+    if (input(str).command === 'check') {
+        var row = input(str).row
+        var column = input(str).column
+
+        if (this.field[row][column].check) {
+            this.field[row][column].check = false
+        }
+        else {
+            this.field[row][column].check = true
+        }
+    }
 }
 
 Minesweeper.prototype.help = function () {
