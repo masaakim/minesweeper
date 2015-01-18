@@ -55,7 +55,60 @@ function init (size, bomb) {
         }
     })
 
-    return trimedField
+    return setNumber(trimedField)
+}
+
+function setNumber (field) {
+    field.forEach(function (row, i) {
+        row.forEach(function (square, j) {
+            if (square.val === 'B') {
+                if (i - 1 >= 0 && j - 1 >= 0) {
+                    if (field[i - 1][j - 1].val !== 'B') {
+                        field[i - 1][j - 1].val++
+                    }
+                }
+                if (i - 1 >= 0 && j >= 0) {
+                    if (field[i - 1][j].val !== 'B') {
+                        field[i - 1][j].val++
+                    }
+                }
+                if (i - 1 >= 0 && j + 1 <= 9) {
+                    if (field[i - 1][j + 1].val !== 'B') {
+                        field[i - 1][j + 1].val++
+                    }
+                }
+
+                if (i >= 0 && j - 1 >= 0) {
+                    if (field[i][j - 1].val !== 'B') {
+                        field[i][j - 1].val++
+                    }
+                }
+                if (i >= 0 && j + 1 <= 9) {
+                    if (field[i][j + 1].val !== 'B') {
+                        field[i][j + 1].val++
+                    }
+                }
+
+                if (i + 1 <= 9 && j - 1 >= 0) {
+                    if (field[i + 1][j - 1].val !== 'B') {
+                        field[i + 1][j - 1].val++
+                    }
+                }
+                if (i + 1 <= 9 && j >= 0) {
+                    if (field[i + 1][j].val !== 'B') {
+                        field[i + 1][j].val++
+                    }
+                }
+                if (i + 1 <= 9 && j + 1 <= 9) {
+                    if (field[i + 1][j + 1].val !== 'B') {
+                        field[i + 1][j + 1].val++
+                    }
+                }
+            }
+        })
+    })
+
+    return field
 }
 
 
