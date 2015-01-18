@@ -117,9 +117,10 @@ Minesweeper.prototype.open = function (str) {
     if (input(str).command === 'open') {
         var row = input(str).row
         var column = input(str).column
-
         this.field[row][column].open = true
     }
+
+    return gameOver(field)
 }
 
 function input (str) {
@@ -130,6 +131,30 @@ function input (str) {
         row: input[1],
         column: input[2]
     }
+}
+
+function gameOver (field) {
+    field.forEach(function (row) {
+        row.forEach(function (square) {
+            if (square.open === true && square.val === 'B') {
+                return false
+            }
+        })
+    })
+
+    return true
+}
+
+Minesweeper.prototype._isGameOver () {
+    this.field.forEach(function (row) {
+        row.forEach(function (square) {
+            if (square.open === true && square.val === 'B') {
+                return false
+            }
+        })
+    })
+
+    return true
 }
 
 Minesweeper.prototype.check = function (input) {
