@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-var pkg = require('./package.json')
-var Minesweeper = require('./')
+var pkg = require('../package.json')
+var Minesweeper = require('../lib/minesweeper')
 
 var minimist = require('minimist')
 var argv = minimist(process.argv.slice(2), {
