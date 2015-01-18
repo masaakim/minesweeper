@@ -1,0 +1,21 @@
+{
+  "name": "minesweeper",
+  "version": "0.0.1",
+  "description": "Minesweeper game playing on the console.",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "bin": {
+    "minesweeper": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/morishitter/minesweeper/git"
+  },
+  "keywords": ["game","minesweeper"],
+  "author": "Masaaki Morishita",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
