@@ -2,14 +2,6 @@
 
 Minesweeper game playing on the console.
 
-## Install
-
-```shell
-$ npm install minesweeper
-```
-
-## Example
-
 ## License
 
 The MIT License (MIT)
