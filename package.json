@@ -4,7 +4,7 @@
   "description": "Minesweeper game playing on the console.",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "tape test"
   },
   "bin": {
     "minesweeper": "bin/cli.js"

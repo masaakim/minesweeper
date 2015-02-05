@@ -42,5 +42,4 @@ if (!argv.V && !argv.h) {
 
     var minesweeper = new Minesweeper(options)
 
-    console.log(minesweeper.field)
 }

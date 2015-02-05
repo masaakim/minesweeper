@@ -45,6 +45,14 @@ test('minesweeper.check()', function (t) {
     t.end()
 })
 
+test('minesweeper.check()', function (t) {
+    var expected = false
+    minesweeper.check(1, 1)
+    var actual = minesweeper.field[1][1].check
+    t.equal(actual, expected)
+    t.end()
+})
+
 test('minesweeper.isGameOver()', function (t) {
     minesweeper.field[0][1].open = true
     var expected = true
